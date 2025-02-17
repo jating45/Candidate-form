@@ -148,7 +148,7 @@ const CandidateTable = () => {
           </div>
         ))}
         <div className="col-12">
-          <button type="submit" className="btn btn-primary w-100"  onClick={() => navigate("/table")}>
+          <button type="submit" className="btn btn-primary w-100" >
             Submit
           </button>
         </div>
