@@ -24,7 +24,15 @@ const CandidateList = () => {
     setFilters({ ...filters, [e.target.name]: e.target.value });
   };
 
+  const handleView = () => {
+    const isAllFilled = Object.values(filters).every((value) => value.trim() !== "");
   
+    if (!isAllFilled) {
+      alert("Please fill in all fields before proceeding.");
+    } else {
+      navigate("/table");
+    }
+  };
 
   const handleClear = () => {
     setFilters({
@@ -49,6 +57,7 @@ const CandidateList = () => {
                 name="status"
                 value={filters.status}
                 onChange={handleChange}
+              
               >
                 <option value="">Select Status</option>
                 <option value="active">Active</option>
@@ -129,7 +138,7 @@ const CandidateList = () => {
           </div>
 
           <div className="d-flex justify-content-between mt-4">
-            <Button className="btn btn-primary" onClick={() => navigate('/table')}     >
+            <Button className="btn btn-primary" onClick={handleView}     >
               View
             </Button>
             <Button className="btn btn-outline-secondary" onClick={handleClear}>
